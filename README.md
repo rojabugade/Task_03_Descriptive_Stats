@@ -16,6 +16,14 @@ data/twitter_posts.csv
 
 Do not commit dataset files.
 
+Current local data status:
+
+- Facebook Ads is available locally as `C:\Users\rojab\MyData\Research Analyst\fb_ads_president_scored_anon (1)\fb_ads_president_scored_anon.csv`.
+- Facebook Posts is not currently available in the workspace.
+- Twitter/X Posts is not currently available in the workspace.
+
+The scripts are ready for all three files, but the full cross-dataset comparison requires the missing Facebook Posts and Twitter/X Posts CSVs.
+
 ## Setup
 
 ```powershell
@@ -43,6 +51,19 @@ python cross_dataset.py data/facebook_ads.csv data/facebook_posts.csv data/twitt
 ## Findings
 
 This system is designed to reveal both within-dataset patterns and cross-platform differences. Dataset-level statistics show missingness, inferred numeric fields, categorical modes, and outliers. Grouped analysis shows which pages, accounts, ads, or posts dominate the data. Cross-dataset comparison identifies shared columns and columns unique to each platform, which is necessary before comparing engagement or activity metrics across Facebook Ads, Facebook Posts, and Twitter/X Posts.
+
+Using the available Facebook Ads file, the dataset contains `246,745` rows, `40` columns, and `246,745` unique `ad_id` values. The largest page groups are:
+
+- Kamala Harris: `55,503` ads
+- Donald J. Trump: `23,988` ads
+- Joe Biden: `14,822` ads
+- The Daily Scroll: `10,461` ads
+- Kamala HQ: `9,851` ads by `page_id`
+- Tim Walz: `6,581` ads
+
+The `page_id,ad_id` grouped analysis showed one row per pair, confirming that `ad_id` behaves as a unique record identifier in the available ads file.
+
+The full Task 03 cross-platform findings should be completed after placing the missing files at `data/facebook_posts.csv` and `data/twitter_posts.csv`, then running `cross_dataset.py`.
 
 ## Reflection
 
